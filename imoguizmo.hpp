@@ -96,7 +96,8 @@ namespace ImOGuizmo {
 			const auto lineEndPositive = ImVec2{ center.x + axis.x, center.y + axis.y };
 			internal::config.mDrawList->AddLine(center, lineEndPositive, color, thickness);
 			internal::config.mDrawList->AddCircleFilled(lineEndPositive, radius, color);
-			const auto textPosX = ImVec2{ static_cast<float>(floor(lineEndPositive.x - 3.0f)), static_cast<float>(floor(lineEndPositive.y - 6.0f)) };
+			const auto labelSize = internal::config.mDrawList->CalcTextSize(text);
+			const auto textPosX = ImVec2(floor(lineEndPositive.x - 0.5f * labelSize.x), floor(lineEndPositive.y - 0.5f * labelSize.y));
 			if (selected) {
 				internal::config.mDrawList->AddCircle(lineEndPositive, radius, IM_COL32_WHITE, 0, 1.1f);
 				internal::config.mDrawList->AddText(textPosX, IM_COL32_WHITE, text);
@@ -233,7 +234,7 @@ namespace ImOGuizmo {
 
 		const float hoverCircleRadius = hSize * config.hoverCircleRadiusScale;
 		SetDrawList(internal::config.mDrawList);
-		if (interactive && internal::checkInsideCircle(center, hoverCircleRadius, mousePos)) internal::config.mDrawList->AddCircleFilled(center, hoverCircleRadius, config.hoverCircleColor);
+		//if (interactive && internal::checkInsideCircle(center, hoverCircleRadius, mousePos)) internal::config.mDrawList->AddCircleFilled(center, hoverCircleRadius, config.hoverCircleColor);
 
 		const float positiveRadius = size * config.positiveRadiusScale;
 		const float negativeRadius = size * config.negativeRadiusScale;
