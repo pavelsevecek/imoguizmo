@@ -315,7 +315,7 @@ namespace ImOGuizmo {
 			// +y axis 
 			if (selection == 1) internal::buildViewMatrix(viewMatrix, pivotPos + internal::ImVec3{ 0, pivotDistance, 0 }, internal::ImVec3{ 0, 0, 1 }, internal::ImVec3{ 0, -1, 0 });
 			// +z axis 
-			if (selection == 2) internal::buildViewMatrix(viewMatrix, pivotPos + internal::ImVec3{ 0, 0, pivotDistance }, internal::ImVec3{ 0, 1, 0 }, internal::ImVec3{ 0, 0, -1 });
+			if (selection == 2) internal::buildViewMatrix(viewMatrix, pivotPos + internal::ImVec3{ 0, 0, pivotDistance }, internal::ImVec3{ 0, -1, 0 }, internal::ImVec3{ 0, 0, -1 });
 			// -x axis 
 			if (selection == 3) internal::buildViewMatrix(viewMatrix, pivotPos - internal::ImVec3{ pivotDistance, 0, 0 }, internal::ImVec3{ 0, 0, 1 }, internal::ImVec3{ 1, 0, 0 });
 			// -y axis 
